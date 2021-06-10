@@ -1,0 +1,17 @@
+<%- include("partials/header") %> 
+<%- include("partials/navbar") %> 
+
+    <div class="container">
+        <h2>All Books</h2>
+        <% if(books.length > 0) { %>
+                <% for(book of books) { %>
+                    <a href="/details/<%= book._id %> ">
+                        <li>Title: <%= book.title %> -Author: <%= book.author %>  </li>
+                    </a>
+                <% } %>
+        <% } else { %>
+            <h2>No Books Found Add some books</h2>
+        <% } %>
+    </div>
+
+<%- include("partials/footer") %> 

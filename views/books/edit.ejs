@@ -1,0 +1,39 @@
+<%- include("partials/header") %> 
+<%- include("partials/navbar") %> 
+
+    <div class="container">
+        <h2>Edit Page</h2>
+        <h3>Title: <%= book.title %> </h3>
+        <p>Author: <%= book.author %> </p>
+        <p>Description: <%= book.description %> </p>
+
+        <h3>Edit These</h3>
+        <form action="/details/<%= book._id %>?_method=PATCH" method="POST">
+            <label for="category">Category</label> <br>
+            <select name="category" required id="gender" type="text" placeholder="<%= book.category %>">
+                <option value="fantacy">Fantacy</option>
+                <option value="adventure">Adventure</option>
+                <option value="mystry">Mystry</option>
+                <option value="fiction">Science Fiction</option>
+                <option value="cooking">Cooking</option>
+                <option value="selfHelp">Self-Help</option>
+                <option value="motivational">Motivational</option>
+                <option value="health">Health</option>
+            </select>
+
+            <br>
+            <label for="tags">Tags</label> <br>
+            <select name="tags" required id="tags" type="text" placeholder="<%= book.tags %>">
+                <option value="onffer">On-Offer</option>
+                <option value="soldOut">Sold-Out</option>
+            </select>
+
+            <br>
+            <label for="image">Image</label> <br>
+            <input type="text" name="image" id="image"> <br> <br>
+
+            <button>Save Changes</button>
+        </form>
+    </div>
+
+<%- include("partials/footer") %> 

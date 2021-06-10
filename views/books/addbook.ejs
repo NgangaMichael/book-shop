@@ -1,0 +1,41 @@
+<%- include("partials/header") %> 
+<%- include("partials/navbar") %> 
+
+    <div class="container">
+        <h2>Add Book</h2>
+        <form action="/addbook" method="POST">
+            <label for="title">Title</label> <br>
+            <input type="text" name="title" id="title">
+            <br>
+            <label for="author">Author</label> <br>
+            <input type="text" name="author" id="author">
+            <br>
+            <label for="description">Description</label> <br>
+            <input type="text" name="description" id="description">
+            <br>
+            <label for="category">Category</label> <br>
+            <select name="category" required id="gender" type="text">
+                <option value="fantacy">Fantacy</option>
+                <option value="adventure">Adventure</option>
+                <option value="mystry">Mystry</option>
+                <option value="fiction">Science Fiction</option>
+                <option value="cooking">Cooking</option>
+                <option value="selfHelp">Self-Help</option>
+                <option value="motivational">Motivational</option>
+                <option value="health">Health</option>
+            </select>
+            <br>
+            <label for="tags">Tags</label> <br>
+            <select name="tags" required id="tags" type="text">
+                <option value="onffer">On-Offer</option>
+                <option value="soldOut">Sold-Out</option>
+            </select>
+            <br>
+            <label for="image">Image</label> <br>
+            <input type="text" name="image" id="image">
+            <br> <br>
+            <button>Save Book</button>
+        </form>
+    </div>
+
+<%- include("partials/footer") %> 

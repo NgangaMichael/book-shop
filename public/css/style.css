@@ -1,0 +1,63 @@
+#navbar {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    background-color: rgb(173, 173, 218);
+    color: rgb(255, 255, 255);
+    margin-bottom: 4rem;
+}
+
+.topcont {
+    background-color: rgb(130, 130, 179);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: rgb(206, 228, 228);
+}
+
+.footer {
+    /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+    background-color: rgb(210, 210, 223);
+    margin-top: 9.4rem;
+    padding-bottom: 0.1rem;
+}
+
+.home-container .row .col-md-6 {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body {
+    background-color: rgb(73, 134, 214)
+}
+
+.card-text {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    padding: 2rem 0rem;
+}
+
+.card a {
+    padding: 0.5rem;
+    color: grey;
+    text-align: center;
+    text-decoration: none;
+}
+
+.card:hover {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card a:hover {
+    color: rgb(77, 165, 37);
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.row .form-cont a{
+    margin-top: 4rem;
+}
