@@ -2,16 +2,30 @@
 <%- include("partials/navbar") %> 
 
     <div class="container">
-        <h2>All Books</h2>
-        <% if(books.length > 0) { %>
+        <h2 class="head1" style="text-align: center; font-size: 3rem;">Books at Miles</h2>
+        <p>Featured New Release Books</p>
+        <hr>    
+        <div class="row">
+                <% if(books.length > 0) { %>
                 <% for(book of books) { %>
-                    <a href="/details/<%= book._id %> ">
-                        <li>Title: <%= book.title %> -Author: <%= book.author %>  </li>
-                    </a>
+                    <div class="col-3">
+                        <div class="card" style="width: 14rem;">
+                        <img src="/uploads/images/<%= book.image %>" class="card-img-top" style="height: 15rem; width: 13.9rem;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 1rem; margin-top: -1rem;"> <%= book.title %> </h5>
+                            <p class="card-text" style="font-size: 1rem; margin-top: -0.5rem;">By: <%= book.author %></p>
+                            <p class="card-text" style="font-size: small; margin-top: -1rem;">Hardcover</p>
+                            <p class="card-text" style="font-size: 1rem; margin-top: -1rem; font-weight: 700;">Price: <%= book.price %> Ksh.</p>
+                            <a href="/details/<%= book._id %>" class="btn btn-warning">Read More...</a>
+                        </div>
+                        </div>
+                    </div>
+                    
                 <% } %>
-        <% } else { %>
-            <h2>No Books Found Add some books</h2>
-        <% } %>
+                <% } else { %>
+                    <h2>No Books Found Add some books</h2>
+                <% } %>
+            </div>
     </div>
 
 <%- include("partials/footer") %> 

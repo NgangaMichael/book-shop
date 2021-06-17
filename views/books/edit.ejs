@@ -27,10 +27,15 @@
                 <option value="onffer">On-Offer</option>
                 <option value="soldOut">Sold-Out</option>
             </select>
+            <br>
+            <label for="price"> Price</label>
+            <br>
+            <input type="number" name="price" id="price" placeholder="<%= book.price %>" value="<%= book.price %> ">
 
             <br>
-            <label for="image">Image</label> <br>
-            <input type="text" name="image" id="image"> <br> <br>
+            <label for="image">Upload Image</label> <br>
+            <input type="file" name="image" id="image" placeholder="book.image" ">
+             <br> <br>
 
             <button>Save Changes</button>
         </form>

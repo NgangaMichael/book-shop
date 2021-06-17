@@ -3,7 +3,7 @@
 
     <div class="container">
         <h2>Add Book</h2>
-        <form action="/addbook" method="POST">
+        <form action="/addbook" method="POST" enctype="multipart/form-data">
             <label for="title">Title</label> <br>
             <input type="text" name="title" id="title">
             <br>
@@ -11,7 +11,7 @@
             <input type="text" name="author" id="author">
             <br>
             <label for="description">Description</label> <br>
-            <input type="text" name="description" id="description">
+            <textarea name="description" id="description" cols="40" rows="5"></textarea>
             <br>
             <label for="category">Category</label> <br>
             <select name="category" required id="gender" type="text">
@@ -27,12 +27,15 @@
             <br>
             <label for="tags">Tags</label> <br>
             <select name="tags" required id="tags" type="text">
-                <option value="onffer">On-Offer</option>
+                <option value="onffer">On Offer</option>
                 <option value="soldOut">Sold-Out</option>
             </select>
             <br>
-            <label for="image">Image</label> <br>
-            <input type="text" name="image" id="image">
+            <label for="price">Price</label> <br>
+            <input type="number" name="price" id="price">
+            <br>
+            <label for="image">Upload Image</label> <br>
+            <input type="file" name="image" id="image">
             <br> <br>
             <button>Save Book</button>
         </form>

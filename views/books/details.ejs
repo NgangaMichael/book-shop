@@ -2,20 +2,30 @@
 <%- include("partials/navbar") %> 
 
     <div class="container">
-        <h2>Details</h2>
-        <h3>Title: <%= book.title %> </h3>
-        <p>Author: <%= book.author %> </p>
-        <p>Description: <%= book.description %> </p>
-        <p>Category: <%= book.category %> </p>
-        <p>Tags: <%= book.tags %> </p>
-        <p>Image: <%= book.imageUrl %> </p>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/uploads/images/<%= book.image %>"
+                    style="width: 100%; height: 25rem;">
+            </div>
 
-        <br>
-        <a href="/details/<%= book._id %>/edit"> <button>Edit Book</button></a>
-        <br> <br>
-        <form action="/details/<%= book._id %>?_method=DELETE " method="POST">
-            <button>Delete Book</button>
-        </form>
+            <div class="col-md-9">
+                <h3>Title: <%= book.title %> </h3>
+                <p>Author: <%= book.author %> </p>
+                <p>Category: <%= book.category %> </p>
+                <p>Tags: <%= book.tags %> </p>
+                <p>Price: <%= book.price %> Ksh</p>
+                <p style="font-weight: 700;">Description: </p>
+                <p style="line-height: 1.5rem;"><%= book.description %> </p>
+
+                <br>
+                <a href="/details/<%= book._id %>/edit"> <button class="btn btn-primary del">Edit Book</button></a>
+                <form action="/details/<%= book._id %>?_method=DELETE " method="POST" style="display: inline;">
+                    <button class="btn btn-danger del">Delete Book</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    
 
 <%- include("partials/footer") %> 
