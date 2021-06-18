@@ -1,7 +1,7 @@
 <%- include("partials/header") %> 
 <%- include("partials/navbar") %> 
 
-    <div class="container">
+    <div class="container" style="margin-bottom:2rem ;">
         <h2 class="head1" style="text-align: center; font-size: 3rem;">Books at Miles</h2>
         <p>Featured New Release Books</p>
         <hr>    
@@ -9,7 +9,7 @@
                 <% if(books.length > 0) { %>
                 <% for(book of books) { %>
                     <div class="col-3">
-                        <div class="card" style="width: 14rem;">
+                        <div class="card" style="width: 14rem; margin-top: 1rem;">
                         <img src="/uploads/images/<%= book.image %>" class="card-img-top" style="height: 15rem; width: 13.9rem;" alt="...">
                         <div class="card-body">
                             <h5 class="card-title" style="font-size: 1rem; margin-top: -1rem;"> <%= book.title %> </h5>

@@ -1,20 +1,18 @@
 <%- include("partials/header") %> 
 <%- include("partials/navbar") %> 
 
-    <div class="container">
-        <h2>Add Book</h2>
-        <form action="/addbook" method="POST" enctype="multipart/form-data">
-            <label for="title">Title</label> <br>
-            <input type="text" name="title" id="title">
+    <div class="container" style="margin-bottom: 3rem;">
+        <h2 style="text-align: center;">Add Book</h2>
+        <form action="/addbook" method="POST" enctype="multipart/form-data" class="form-group">
+        
+            <input type="text" name="title" id="title" class="form-control" placeholder="Title">
             <br>
-            <label for="author">Author</label> <br>
-            <input type="text" name="author" id="author">
+            <input type="text" name="author" id="author" class="form-control" placeholder="Author">
             <br>
-            <label for="description">Description</label> <br>
-            <textarea name="description" id="description" cols="40" rows="5"></textarea>
-            <br>
-            <label for="category">Category</label> <br>
-            <select name="category" required id="gender" type="text">
+            <textarea name="description" id="description" cols="40" rows="5" class="form-control" placeholder="Describe The book"></textarea>
+            
+            <label for="category">Category</label>
+            <select name="category" required id="gender" type="text" class="form-control">
                 <option value="fantacy">Fantacy</option>
                 <option value="adventure">Adventure</option>
                 <option value="mystry">Mystry</option>
@@ -24,21 +22,24 @@
                 <option value="motivational">Motivational</option>
                 <option value="health">Health</option>
             </select>
-            <br>
-            <label for="tags">Tags</label> <br>
-            <select name="tags" required id="tags" type="text">
-                <option value="onffer">On Offer</option>
+            
+            <label for="tags">Tags</label>
+            <select name="tags" required id="tags" type="text" class="form-control">
+                <option value="on-Offer">On Offer</option>
                 <option value="soldOut">Sold-Out</option>
+                <option value="Available">Available</option>
             </select>
+            
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" class="form-control">
+            
+            <label for="image">Upload Image</label>
+            <input type="file" name="image" id="image" class="form-control">
+    
             <br>
-            <label for="price">Price</label> <br>
-            <input type="number" name="price" id="price">
-            <br>
-            <label for="image">Upload Image</label> <br>
-            <input type="file" name="image" id="image">
-            <br> <br>
-            <button>Save Book</button>
+            <button class="btn btn-success">Save Book</button>
         </form>
     </div>
 
 <%- include("partials/footer") %> 
+<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ducimus a. Suscipit ratione libero fugiat. Sint suscipit placeat cum! Officiis culpa, unde optio ratione architecto ex veritatis ipsum ipsa blanditiis ut, aliquid asperiores, dolores neque debitis. Earum, dolorum consectetur distinctio tenetur, labore commodi asperiores iure, ducimus expedita optio nihil quisquam illo sint! Aspernatur provident eligendi, rerum sunt sint dicta omnis nesciunt repellendus nobis nulla asperiores delectus sequi, quo ipsum id a. Culpa optio perferendis fugiat, accusamus similique incidunt deleniti cum omnis dolor expedita, ipsa qui, quo consequatur suscipit a sequi fuga. Quibusdam pariatur expedita ipsam ipsa quod totam explicabo ex quo inventore odit placeat officia veniam, deserunt accusamus quae tempora enim! Eligendi odio delectus velit aspernatur quia nulla repellendus iste possimus accusamus facere, cum impedit blanditiis hic doloribus consectetur ipsam quas asperiores sit mollitia rerum inventore expedita accusantium. Odit voluptate recusandae facere repellendus nemo! Eius aut quidem minus qui sed!</p> -->

@@ -3,7 +3,7 @@ const app = express()
 const path = require("path");
 const methodOverride = require("method-override");
 const multer = require("multer");
-const router = express.Router()
+// const router = express.Router()
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
@@ -66,7 +66,7 @@ app.get("/search", (req, res) => {
 
 
 app.post("/addbook", upload.single("image"), (req, res) => {
-    const file = req.file.filename
+    // const file = req.file.filename
     // console.log(file)
     
     const newbook = new Books({
@@ -75,6 +75,7 @@ app.post("/addbook", upload.single("image"), (req, res) => {
         description: req.body.description,
         category: req.body.category,
         tags: req.body.tags,
+        price: req.body.price,
         image: req.file.filename,
     })
     newbook.save()
@@ -90,6 +91,7 @@ app.get("/details/:id", (req, res) => {
     .catch(err => console.log("Err on details route", err))
 });
 
+
 app.get("/details/:id/edit", (req, res) => {
     const {id} = req.params;
     Books.findById(id)
@@ -97,10 +99,15 @@ app.get("/details/:id/edit", (req, res) => {
     .catch(err => console.log("Err on edit route"))
 });
 
-app.patch("/details/:id", (req, res) => {
+app.patch("/details/:id", upload.single("image"), (req, res) => {
     const {id} = req.params;
-    const {category, tags, image, price} = req.body;
-    Books.findByIdAndUpdate(id, {"category": category, "tags": tags, "image": image, "price": price})
+    const {category, tags, price} = req.body;
+    Books.findByIdAndUpdate(id, {
+        "category": category, 
+        "tags": tags, 
+        image: req.file.filename,
+        "price": price
+        })
     .then(results => res.redirect("/details/"+id))
     .catch(err => console.log("Err on patch route", err))
 });

@@ -1,7 +1,7 @@
 <%- include("partials/header") %> 
 <%- include("partials/navbar") %> 
 
-    <div class="container">
+    <div class="container" style="margin-bottom:1rem ;">
         <div class="row">
             <div class="col-md-3">
                 <img src="/uploads/images/<%= book.image %>"
@@ -24,6 +24,16 @@
                 </form>
             </div>
         </div>
+    </div>
+
+    <div class="container">
+        <h3>Similar Books</h3>
+        <hr>
+        <% if(book.category === book.category) { %>
+                <p> <%= book.category %> books </p>
+        <% } else { %>
+            <h3>No Similar Books vailable</h3>
+        <% } %>
     </div>
 
     
