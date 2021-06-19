@@ -1,16 +1,18 @@
+// requirering required packages 
 const express = require("express");
 const app = express()
 const path = require("path");
 const methodOverride = require("method-override");
 const multer = require("multer");
-// const router = express.Router()
 
+// setting enviroment for node 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({extended: true}));
 
+// requiring mongoose and the schema and connecting to DB 
 const mongoose = require("mongoose");
 const Books = require("./module/books");
 mongoose.connect("mongodb://localhost:27017/booksop", {
@@ -44,31 +46,29 @@ const upload = multer({
     }
 });
 
+// setting home route for all books 
 app.get("/", (req, res) => {
     Books.find()
     .then(results => res.render("books/home", {books: results}))
     .catch(err => console.log("Err on get route", err))
 });
 
+// getting route for addding book 
 app.get("/addbook", (req, res) => {
     res.render("books/addbook")
 });
 
-// search books 
+// search books route not functional yet
 app.get("/search", (req, res) => {
     const {searchString} = req.query.search
     // Books.find({$text: {$search: searchString}})
     Books.find({$text: {$search: searchString}})
-
     .then(results => console.log(results.title))
     .catch(err => console.log(err))
 });
 
-
+// setting post route for adding a book 
 app.post("/addbook", upload.single("image"), (req, res) => {
-    // const file = req.file.filename
-    // console.log(file)
-    
     const newbook = new Books({
         title: req.body.title,
         author: req.body.author,
@@ -79,19 +79,27 @@ app.post("/addbook", upload.single("image"), (req, res) => {
         image: req.file.filename,
     })
     newbook.save()
-    
     .then(results => res.redirect("/"))
     .catch(err => console.log("Err on post route", err))
 });
 
+// code for getting similar books, not functionl yet
+const bks = function(req, res) {
+    Books.find()
+    .then(results => res.render("books/details", {books: results}))
+    .catch(err => console.log(err))
+}
+
+// route for desplaying details for each book 
 app.get("/details/:id", (req, res) => {
+    const boks = bks()
     const {id} = req.params;
     Books.findById(id)
-    .then(results => res.render("books/details", {book: results}))
+    .then(results => res.render("books/details", {book: results, boks}))
     .catch(err => console.log("Err on details route", err))
 });
 
-
+// route for editing details for a specific book 
 app.get("/details/:id/edit", (req, res) => {
     const {id} = req.params;
     Books.findById(id)
@@ -99,6 +107,7 @@ app.get("/details/:id/edit", (req, res) => {
     .catch(err => console.log("Err on edit route"))
 });
 
+// pathc route for posting edited information to the DB 
 app.patch("/details/:id", upload.single("image"), (req, res) => {
     const {id} = req.params;
     const {category, tags, price} = req.body;
@@ -112,6 +121,7 @@ app.patch("/details/:id", upload.single("image"), (req, res) => {
     .catch(err => console.log("Err on patch route", err))
 });
 
+// delete Route for deleting a specific book 
 app.delete("/details/:id", (req, res) => {
     const {id} = req.params;
     Books.findByIdAndDelete(id)
@@ -119,6 +129,7 @@ app.delete("/details/:id", (req, res) => {
     .catch(err => console.log("Err on delete route", err))
 });
 
+// catching all route that are not specified above 
 app.get("*", (req, res) => {
     res.render("books/notfound")
 });

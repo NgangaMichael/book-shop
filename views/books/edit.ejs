@@ -5,7 +5,7 @@
         <h2 style="text-decoration: underline;">Edit Page</h2>
         <h3>Title: <%= book.title %> </h3>
         <p>Author: <%= book.author %> </p>
-        <p>Description: <%= book.description %> </p>
+        <p> <strong> Description:</strong> <%= book.description %> </p>
 
         <h3 style="text-align: center;">Edit These</h3>
         <form action="/details/<%= book._id %>?_method=PATCH" method="POST" enctype="multipart/form-data" class="form-group" style="margin-bottom: 2rem;">
