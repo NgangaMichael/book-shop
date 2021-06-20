@@ -1,7 +1,7 @@
 {
-  "name": "start",
+  "name": "bookshop",
   "version": "1.0.0",
-  "description": "testing my skills",
+  "description": "Deveoping a Book store App",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
